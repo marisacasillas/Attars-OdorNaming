@@ -1,0 +1,10 @@
+OA1 = Do you sniff at a new book?
+OA2 = Do you feel cheerful or happy when you pick up a pleasant odor in the air?
+OA3 = Do you notice when people are wearing perfume or aftershave or deodorant?
+OA4 = Do odors revive strong or vivid memories in you?
+OA5 = How important are odors to you in your everyday life?
+OA6 = When you visit someone else's house, do you notice how it smells?
+OA7 = Are you the first one to smell gas?
+OA8 = Are you the first one to smell a fire, even when the smell only comes from a barbecue or fireplace?
+OA9 = Are you the first one to smell spoilt food in the fridge?
+OA10 = People differ in their sensitivity for odors. An unpleasant smell can leave one person unaffected yet be unbearable to another. How sensitive to odors do you think you are?

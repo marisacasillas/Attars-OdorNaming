@@ -1,0 +1,67 @@
+# Libraries
+library(tidyverse)
+library(grid)
+library(gridExtra)  
+library(lme4)
+#library(ggpirate)
+source("_0-editedGGPIRATE.R")
+
+# Plotting theme for basic plots
+basic.theme <- theme(
+	panel.background = element_rect(
+		fill = "transparent",colour = NA),
+	plot.background = element_rect(
+		fill = "transparent",colour = NA),
+	legend.background = element_rect(
+		fill="transparent"),
+	legend.text = element_text(size=30),
+	legend.title = element_text(size=30),
+	legend.key.height = unit(2, "lines"),
+	axis.text.x = element_text(size=30, angle=45, hjust=1),
+	axis.title.x = element_text(size=30),
+	axis.text.y = element_text(size=30),
+	axis.title.y = element_text(size=30),
+	strip.text = element_text(size=30),
+	panel.spacing = unit(2, "lines"))
+
+# Standard error of the mean
+sem <- function (x) {
+    sd(x) / sqrt(length(x))
+}
+
+# Fancy multiplot function
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
