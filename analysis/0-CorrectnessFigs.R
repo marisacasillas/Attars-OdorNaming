@@ -265,14 +265,14 @@ edu.effects <- data.frame(
 edu.effects$OdorType <- factor(
 	edu.effects$OdorType,
 	levels=c("Medicinal", "Culinary"))
-edu.effects$Education <- factor(edu.effects$Education,
-	levels=c(
-	"School Diploma", "High School Diploma", "BA",
-	"Associate Degree", "MA", "PhD"))
-edu.effects$Education <- factor(edu.effects$Education,
-	labels=c(
-	"School", "High School", "BA",
-	"Assoc. Degree", "MA", "PhD"))
+# edu.effects$Education <- factor(edu.effects$Education,
+# 	levels=c(
+# 	"School Diploma", "High School Diploma", "BA",
+# 	"Associate Degree", "MA", "PhD"))
+# edu.effects$Education <- factor(edu.effects$Education,
+# 	labels=c(
+# 	"School", "High School", "BA",
+# 	"Assoc. Degree", "MA", "PhD"))
 p <- ggplot(edu.effects,
 	aes(x=Group, y=m, fill=OdorType)) +
 	facet_grid(. ~ Education) +
